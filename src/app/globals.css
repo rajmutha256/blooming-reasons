@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff7ed;
+  --foreground: #334155;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-blush: #fce7f3;
+  --color-cream: #fff7ed;
+  --color-lavender: #e9d5ff;
+  --color-peach: #fed7aa;
+  --color-rose-soft: #fbcfe8;
+  --color-slate: #334155;
+  --color-slate-soft: #475569;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #fffdf8, #fff7ed 45%, #fce7f3);
+  color: var(--foreground);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(var(--drift, 0px), -120vh, 0) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-8px);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.flower-float {
+  animation-name: float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.animate-shake {
+  animation: shake 420ms ease-in-out;
+}
+
+.animate-reveal {
+  animation: reveal 300ms ease-in-out;
+}
